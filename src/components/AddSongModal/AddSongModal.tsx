@@ -40,9 +40,9 @@ export function AddSongModal({ onClose, onAdd }: AddSongModalProps) {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
+    setForm((prev: FormState) => ({ ...prev, [name]: value }));
     if (errors[name as keyof FormState]) {
-      setErrors((prev) => ({ ...prev, [name]: undefined }));
+      setErrors((prev: Partial<FormState>) => ({ ...prev, [name]: undefined }));
     }
   };
 

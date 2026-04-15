@@ -40,16 +40,15 @@ export function PlayerPage() {
   const prevSong: Song | null = currentIndex > 0 ? songs[currentIndex - 1] : null;
   const nextSong: Song | null = currentIndex < songs.length - 1 ? songs[currentIndex + 1] : null;
 
-  const handleSelectSong = (song: Song) => {
-    // Optimistically set current song for immediate UI feedback
-    // The actual navigation is handled by the backend
+  const handleSelectSong = (_song: Song) => {
+    // Navigation handled by backend via navigateNext/Prev
   };
 
   return (
     <div className={styles.page}>
       {/* Star field background */}
       <div className={styles.stars} aria-hidden="true">
-        {stars.map((s) => (
+        {stars.map((s: { id: number; top: string; left: string; size: number; duration: string; delay: string }) => (
           <div
             key={s.id}
             className={styles.star}

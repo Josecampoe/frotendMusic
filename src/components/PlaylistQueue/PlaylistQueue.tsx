@@ -62,7 +62,7 @@ export function PlaylistQueue({
                 <span className={styles.songDuration}>{song.duration}</span>
                 <button
                   className={styles.removeBtn}
-                  onClick={(e) => {
+                  onClick={(e: React.MouseEvent) => {
                     e.stopPropagation();
                     onRemove(song.id);
                   }}
